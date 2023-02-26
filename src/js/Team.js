@@ -13,4 +13,17 @@
  * */
 export default class Team {
   // TODO: write your logic here
+  constructor() {
+    this.members = new Set();
+  }
+
+  addHeroes(characters) {
+    this.members = new Set([...this.members, ...characters]);
+  }
+
+  *[Symbol.iterator]() {
+    for (const person of this.members) {
+      yield person;
+    }
+  }
 }
